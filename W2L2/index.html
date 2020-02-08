@@ -35,7 +35,7 @@
                 assumenda, totam maxime accusantium consectetur est.
             </p>
         </div>
-    
+
         <div class="categories">
             <h2>Categories</h2>
             <ul>
@@ -46,9 +46,8 @@
             </ul>
 
         </div>
-        
-    </div>
-    <!--Container ends-->
+
+
 
     <h3>Header3</h3>
     <h4>Header4</h4>
@@ -90,7 +89,7 @@
         <tbody>
             <tr>
                 <td>Kaspar Kais</td>
-                <td>kkais@gsomething.com</td>
+                <td>kkais@something.com</td>
                 <td>40</td>
             </tr>
             <tr>
@@ -108,63 +107,49 @@
     <br>
     <hr>
     <br>
-    <div class="container">
-        <!--sākas jauns containeris-->
-        <form action="process.php" method="POST">
-            <form class="my form">
-                <div class="form-group">
-                    <label>First Name</label>
-                    <input type="text" name="first-name">
-                </div>
-                <br>
-                <div class="form-group">
-                    <label>Last Name</label>
-                    <input type="text" name="last-name" placeholder="your last name">
-                </div>
-                <br>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="email">
-                </div>
-                <br>
-                <div class="form-group">
-                    <label>Email:<input readonly placeholder="youremail@domain.com">
-                    </label>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label>Message</label>
-                    <textarea name="message"></textarea>
-                </div>
-                <br>
-                <input class="button" type="submit" value="Submit">
-            </form>
-        </form>    
-            <br>
-            <form>
-                <div>
-                    <label for="gender">Gender</label>
-                    <select>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                <br>
-                <div>
-                    <label for="birthday">Birthday</label>
-                    <input id="date" type="date">
-                </div>
-                <br>
-                <div>
-                    <label>Age:</label>
-                    <input type="number" name="age" value="30">
-                </div>
 
-                <button type="submit">Save</button>
-                <button type="submit">Save All</button>
+    
+        <form class="my-form">
+            <div class="form-group">
+                <label>Name: </label>
+                <input type="text" name="name">
+            </div>
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="text" name="email">
+            </div>
+            <div class="form-group">
+                <label>Message:</label>
+                <textarea name="message"></textarea>
+            </div>
+            <input class="button" type="submit" value="Submit" name="">
+        </form>
+    </div> <!--container beigas-->
+    <br>
+    <form>
+        <div>
+            <label for="gender">Gender</label>
+            <select>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label for="birthday">Birthday</label>
+            <input id="date" type="date">
+        </div>
+        <br>
+        <div>
+            <label>Age:</label>
+            <input type="number" name="age" value="30">
+        </div>
 
-            </form>
+        <button type="submit">Save</button>
+        <button type="submit">Save All</button>
+
+    </form>
     </div>
     <button>Click me</button>
     <br>
