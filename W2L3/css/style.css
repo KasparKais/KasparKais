@@ -1,5 +1,5 @@
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 body {
     margin: 0;
@@ -9,23 +9,23 @@ nav {
     padding: 0 10%;
     width: 100%;
     height: 50px;
-    background: rgba(200, 160, 200, 0,4);
+    background: pink
 }
 img {
     height: 100%;
 }
 .menu {
-     float: right;
-     line-height: 50px;
-     text-align: right;
+    float: right;
+    line-height: 50px;
+    text-align: right;
 }
 .menu ul {
     margin: 0;
     padding: 0 20px;
     display: none;
     list-style: none;
-    background: rgba(200, 160, 200, 0,4);
+    background: pink
 }
-.menu :hover ul {
+.menu:hover ul{
     display: block;
 }
