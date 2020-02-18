@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/home.css">
+</head>
+
+<body>
+    <table style="width: 100%;">
+        <thead>
+            <tr class="box1">
+                <th>Vārds</th>
+                <th>Uzvārds</th>
+                <th>Epasts</th>
+                <th>Adrese</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>Jānis</td>
+                <td>Bērziņš</td>
+                <td>JB@domain.com</td>
+                <td>Brīvības 123</td>
+            </tr>
+            <tr>
+                <td>Līga</td>
+                <td>Ozola</td>
+                <td>LO@domain.com</td>
+                <td>Tallinas 12</td>
+            </tr>
+            <tr>
+                <td>Toms</td>
+                <td>Tomsons</td>
+                <td>TT@domain.com</td>
+                <td>Cēsu 167</td>
+            </tr>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <form>
+        <div>
+            <label> Vārds:
+                <input type="Vārds">
+            </label>
+        </div>
+        <br>
+        <div>
+            <label for="Last">Last Name:</label>
+            <input id="Last">
+        </div>
+        <br>
+        <div>
+            <label> Email:
+                <input readonly placeholder="email@domain.com">
+            </label>
+        </div>
+        <br>
+        <div>
+            <label>Age: (in full years)
+                <input id="age" type="number">
+            </label>
+        </div>
+        <br>
+        <div>
+            <label>Country:
+                <select>
+                    <option value="latvia">Latvia</option>
+                    <option value="estonia">Estonia</option>
+                    <option value="lithuania">Lithuania</option>
+                </select>
+            </label>
+        </div>
+        <br>
+        <div>
+            <label>Description:
+                <textarea rows="4" cols="30"></textarea>
+
+            </label>
+        </div>
+        <br>
+        <div>I am enjoying this:
+            <label><input type="radio" name="radio" value="Yes">Yes</label>
+            <label><input type="radio" name="radio" value="No">No</label>
+        </div>
+        <br>
+        <input type="button" value="Save">
+
+    </form>
+
+</body>
+
+</html>

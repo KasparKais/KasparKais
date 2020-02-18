@@ -1,0 +1,13 @@
+body { background: #d6d3d3;
+       color: #555555;
+       font-family: Arial, Helvetica, sans-serif;
+       font-size: 16px;
+       line-height: 1.6em;
+}
+table {
+    table-layout: fixed;
+    padding: 10px;
+    border: 5px solid darkgoldenrod;
+    margin: 0;
+    border-width: 3px;
+}
