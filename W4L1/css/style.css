@@ -29,6 +29,7 @@
 
 .input-wrapper input {
     width: 100%;
+    border: 1px solid;
 }
 
 .btn-wrapper {
