@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 body {
     margin: 0;
     padding: 0;
@@ -8,57 +11,57 @@ body {
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    width: 350px;
+    width: 291px;
     height: auto;
-    padding: 40px;
+    padding: 30px;
     background: rgb(49, 48, 48);
     color: white;
     box-sizing: border-box;
     transition: 0.5s;
 }
 .sidebar-open.active {
-    left: -350px;
+    left: -290px;
 }
 .sidebar-open input {
     width: 100%;
     height: 25px;
     padding: 5px;
     margin-top: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     border: none;
     outline: none;
     cursor: pointer;
 }
 .sidebar-open input[type="checkbox"] {
+    margin-right: 15px;
     width: 0;
-    height: 10px;
+    height: 14px;
+    cursor: pointer;
 }
 
 .sidebar-open button {
     border: 1px solid;
-    margin: 10px 130px;
+    margin: 10px 66px;
     border-radius: 10px;
     background: green;
     height: 36px;
     width: 100px;
 }
+
 .sidebar-open select {
-    width: 103%;
-    overflow: scroll;
+    width: 100%;
     border: none;
     height: 40px;
     padding: 5px;
     margin-top: 10px;
 }
-
 .toggle {
     position: absolute;
     top: 100px;
     right: -48px;
-    width: 32px;
+    width: 48px;
     height: 140px;
     text-align: center;
-    cursor: pointer;
     background: rgb(255, 0, 0);  
     writing-mode: vertical-rl;
     text-orientation: mixed;
@@ -67,9 +70,32 @@ body {
     padding-right: 16px;
 }
 
+.toggle.active:before {
+    content: 'Open Form';
+}
 .toggle:before {
     content: 'Close';
 }
-.toggle.active:before {
-    content: 'Open Form';
+#table {
+    width: 80%;
+    padding: 50px 20px 0;
+}
+.list {
+    width: 100%;
+    margin: auto;
+    background: lightgray;
+}
+th {
+    border: 1px solid black;
+    padding: 10px;
+}
+.popup-wrapper {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+#popup {
+    width: 100%;
+    height: 100%;
 }

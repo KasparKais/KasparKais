@@ -5,3 +5,12 @@ $(document).ready(function(){
 
     })
 })
+function showHideShowSpecDeals() {
+    if(document.getElementById('checkbox').checked) {
+        document.getElementById('receiveWhen').style.display='block';
+    } else {
+        document.getElementById('receiveWhen').style.display='none';
+    }
+}
+
+

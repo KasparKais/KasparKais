@@ -14,7 +14,6 @@
 <body>
     <div class="sidebar-open">
         <div class="toggle">
-            <!--<label>Open Form</label>-->
         </div>
         <form>
             <div class="input-wrapper">
@@ -29,12 +28,12 @@
             </div>
             <div class="input-wrapper">
                 <label>
-                    <input type="checkbox">
+                    <input type="checkbox" id="checkbox" value="yes" onclick="showHideShowSpecDeals()">
                     Send me special deals
                 </label>
             </div>
             <br>
-            <div class="input-wrapper">
+            <div class="input-wrapper" id="receiveWhen">
                 <label for="receiveWhen">I'm willing to receive them every:</label>
                 <select>
                     <option value=""></option>
@@ -45,10 +44,37 @@
                 </select>
             </div>
             <br>
-
+            
             <button type="submit">Subscribe</button>
 
         </form>
+    </div>
+    <div id="table">
+        <table class="list">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Username</th>
+                    <th>E-mail</th>
+                    <th>Special offers</th>
+                    <th>Offer cycle</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="popup-wrapper">
+        <div id="popup">
+            <div class="content-wrapper">
+                <div class="content">
+                    Thank You for subscribing
+                </div>
+                <div class="actions">
+                    <button>Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>
