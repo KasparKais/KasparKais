@@ -1,16 +1,17 @@
 <?php
-require_once "./db-wrapper.php";
+    var_dump($_GET);
+    if (isset($_GET["id"])) {
+        require_once "./db-wrapper.php";
+        
+        $id = $_GET["id"];
+        $db = new DB();
+        $db->openConnection();
 
-$id = isset($_GET["id"]) ? $_GET["id"] : '' ;
+        echo $id;
+        $result = $db->run("DELETE FROM customers WHERE id=$id");
 
-if ($id) {
-    $db = new DB();
-    $db->openConnection();
-
-    $db->run("DELETE FROM customers WHERE id=$id");
-
-    $db->closeConnection();
+        $db->closeConnection();
 }
-header("Location: /KasparKais.github.io/W5L2/")
+// header("Location: /KasparKais.github.io/W5L2/")
 
 ?>

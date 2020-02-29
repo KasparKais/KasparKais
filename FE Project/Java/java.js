@@ -5,7 +5,7 @@ $(document).ready(function(){
 
     })
 })
-function showHideShowSpecDeals() {
+function SpecDeals() {
     if(document.getElementById('checkbox').checked) {
         document.getElementById('receiveWhen').style.display='block';
     } else {

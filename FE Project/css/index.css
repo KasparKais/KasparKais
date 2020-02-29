@@ -9,18 +9,18 @@ body {
 .sidebar-open {
     position: fixed;
     top: 50%;
-    left: 0;
+    left: -290px;
     transform: translateY(-50%);
-    width: 291px;
+    width: 290px;
     height: auto;
-    padding: 30px;
+    padding: 40px;
     background: rgb(49, 48, 48);
     color: white;
     box-sizing: border-box;
     transition: 0.5s;
 }
 .sidebar-open.active {
-    left: -290px;
+    left: 0px;
 }
 .sidebar-open input {
     width: 100%;
@@ -71,10 +71,10 @@ body {
 }
 
 .toggle.active:before {
-    content: 'Open Form';
+    content: 'Close';
 }
 .toggle:before {
-    content: 'Close';
+    content: 'Open Form';
 }
 #table {
     width: 80%;
