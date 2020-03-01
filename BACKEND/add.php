@@ -2,16 +2,10 @@
 if (isset($_POST["submit"])){
     require_once "./helpers/db-wrapper.php";
 
-    $db = new DB();
-
-    $db->openConnection(); 
-
     $name = $_POST["name"];
     $email = $_POST["email"];
 
-    $db->run("INSERT INTO users (name, email) VALUES ('$name', '$email')");
-
-    $db->closeConnection();
+    DB::run("INSERT INTO users (name, email) VALUES ('$name', '$email')");
 
     header("Location: /KasparKais.github.io/backend/");
 }

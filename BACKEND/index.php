@@ -1,12 +1,9 @@
 <?php
     require_once "./helpers/db-wrapper.php";
 
-    $db = new DB();
-    $db->openConnection(); 
+    $result = DB::run("SELECT name, email, id FROM users LIMIT 25");
 
-    $result = $db->run("SELECT name, email, id FROM users LIMIT 25");
-
-    $db->closeConnection();
+    
 ?>
 
 

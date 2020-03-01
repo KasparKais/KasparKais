@@ -1,34 +1,39 @@
 <?php
 class DB {
-    private $connection;
+    private static $connection;
 
-    public function openConnection($dbname = NULL)
+    private static function openConnection($dbname = NULL)
     {
         $dbhost = "mysql-server-80";
         $dbuser = "root";
         $dbpass = "root_password";
         $dbname = "web-bootcamp-db";
 
-        $this->connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+        static::$connection = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
-        if ($this->connection->connect_error) {
-            die("Connection failed:" . $this->connection->connect_error);
+        if (static::$connection->connect_error) {
+            die("Connection failed:" . static::$connection->connect_error);
         }
     }
 
-    public function closeConnection() {
+    private static function closeConnection() {
 
-        $this->connection->close();
+        static::$connection->close();
     }
-    
-    public function run($sql) 
-    {
-        $response = $this->connection->query($sql);
+
+    public static function run($sql) 
+    {   
+        if(!static::$connection) {
+           static::openConnection(); 
+        }
+        $response = static::$connection->query($sql);
+
+        static::closeConnection();
 
         if ($response) {
             return $response;
         } else {
-            die("SQL error: " . $this->connection->error . "</br>");
+            die("SQL error: " . static::$connection->error . "</br>");
             }
         }
     }

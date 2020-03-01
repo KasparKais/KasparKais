@@ -2,18 +2,11 @@
 require_once "./helpers/db-wrapper.php";
 
 if (isset($_POST["submit"])){
-    $db = new DB();
-
-    $db->openConnection(); 
-
     $name = $_POST["name"];
     $email = $_POST["email"];
     $id = $_POST["id"];
 
-    $db->run("UPDATE users SET name='$name', email='$email' WHERE id=$id");
-
-    $db->closeConnection();
-
+    DB::run("UPDATE users SET name='$name', email='$email' WHERE id=$id");
     header("Location: /KasparKais.github.io/backend/");
 }
 $name = '';
@@ -22,13 +15,11 @@ $id = '';
 
 if (isset($_GET["id"])) {
     $id = $_GET["id"];
+ 
 
-    $db = new DB();
-    $db->openConnection(); 
+    $result = DB::run("SELECT * FROM users WHERE id=$id");
 
-    $result = $db->run("SELECT * FROM users WHERE id=$id");
-
-    $db->closeConnection();
+    
 
     while($row = mysqli_fetch_assoc($result)) {
         $name = $row["name"];

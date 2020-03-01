@@ -3,12 +3,8 @@
         require_once "./helpers/db-wrapper.php";
         
         $id = $_GET["id"];
-        $db = new DB();
-        $db->openConnection();
 
-        $result = $db->run("DELETE FROM users WHERE id=$id");
-
-        $db->closeConnection();
+        $result = DB::run("DELETE FROM users WHERE id=$id");
     }
     if (isset($_GET["redirect"]) && $_GET["redirect"] === "false") {
         return;
