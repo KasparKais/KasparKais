@@ -12,5 +12,3 @@ function SpecDeals() {
         document.getElementById('receiveWhen').style.display='none';
     }
 }
-
-
