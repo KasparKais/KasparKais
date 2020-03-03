@@ -22,8 +22,8 @@
                 </label>
             </div>
             <div class="form-group">
-                <label>Email
-                    <input class="form-control" name="email" value="<?= $email ?>">
+                <label>Password
+                    <input class="form-control" name="password" value="<?= $password ?>">
                 </label>
             </div>
             <input hidden name="id" value="<?= $id ?>">

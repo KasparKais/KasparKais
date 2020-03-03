@@ -1,13 +1,13 @@
 <?php
 require_once "./models/UsersModel.php";
 $name = '';
-$email = '';
+$password = '';
 $id = '';
 $isEdit = true;
 if (isset($_POST["submit"])){
     $data = [
         "name" => $_POST["name"],
-        "email" => $_POST["email"],
+        "password" => $_POST["password"],
         "id" => $_POST["id"],
     ];
     UsersModel::updateUsers($data);
@@ -19,7 +19,7 @@ if (isset($_GET["id"])) {
 
     while($row = mysqli_fetch_assoc($result)) {
         $name = $row["name"];
-        $email = $row["email"];
+        $password = $row["password"];
         $id = $row["id"];
     }
 }

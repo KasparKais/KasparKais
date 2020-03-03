@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,31 +18,45 @@
 </head>
 <body class="p-3">
     <div class="d-flex justify-content-between align-items-center">
-        <h1 class="title">
-            Users
-        </h1>
+        <div>
+              <h1 class="title">
+                Users
+              </h1>
+        </div>
+      
+
+        <div>
+        <a <?= isset($_SESSION["user_id"]) ? 'hidden' : '' ?> href="/KasparKais.github.io/backend/login.php" class="btn btn-primary">
+            Login
+        </a>
+
+        <a <?= isset($_SESSION["user_id"]) ? '' : 'hidden' ?> href="/KasparKais.github.io/backend/logout.php" class="btn btn-primary">
+            Logout
+        </a>
+
 
         <a href="/KasparKais.github.io/backend/add.php" class="btn btn-primary">
             Add user
         </a>
+        </div>
+
+
     </div>
 
     <table class="table">
         <tr>
             <th>Name</th>
-            <th>Email</th>
             <th></th>
         </tr>
         <?php while ($row = mysqli_fetch_assoc($result)) { ?>
             <tr>
                 <td><?= $row["name"]?></td>
-                <td><?= $row["email"]?></td>
+               
                 <td>
                     <a href="/KasparKais.github.io/backend/edit.php?id=<?= $row["id"]?>" class="btn btn-primary">Edit</a>
 
                     <a href="/KasparKais.github.io/backend/delete.php?id=<?= $row["id"]?>" class="btn btn-danger">Delete (PHP)</a>
 
-                    <button class="btn btn-danger js-delete-row" data-id="<?= $row["id"]?>">Delete (jQuery)</button>
                 </td>
             </tr>
         <?php } ?>
