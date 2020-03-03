@@ -13,7 +13,7 @@
 </head>
 <body class="p-3">
     <div class="d-flex justify-content-center">
-        <form action="/KasparKais.github.io/backend/edit.php" method="POST">
+        <form action="/KasparKais.github.io/backend/<?= $isEdit ? 'edit.php' : 'add.php'?>" method="POST">
             <div class="form-group">
                 <label>
                     Name

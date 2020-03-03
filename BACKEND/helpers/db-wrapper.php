@@ -19,6 +19,7 @@ class DB {
     private static function closeConnection() {
 
         static::$connection->close();
+        static::$connection = null;
     }
 
     public static function run($sql) 
@@ -30,11 +31,11 @@ class DB {
 
         static::closeConnection();
 
-        if ($response) {
-            return $response;
-        } else {
+        if (static::$connection->error) {
             die("SQL error: " . static::$connection->error . "</br>");
-            }
+        } else {
+            return $response;
+        }
         }
     }
 ?>

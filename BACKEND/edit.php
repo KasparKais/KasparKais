@@ -3,7 +3,7 @@ require_once "./models/UsersModel.php";
 $name = '';
 $email = '';
 $id = '';
-
+$isEdit = true;
 if (isset($_POST["submit"])){
     $data = [
         "name" => $_POST["name"],
