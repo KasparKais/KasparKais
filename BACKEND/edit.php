@@ -1,4 +1,9 @@
 <?php
+session_start();
+if ($_GET["token"] !== $_SESSION["edit_access_token"]) {
+    header("Location: /KasparKais.github.io/BACKEND/" );
+}
+
 require_once "./models/UsersModel.php";
 $name = '';
 $password = '';

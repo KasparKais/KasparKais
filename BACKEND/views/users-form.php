@@ -23,12 +23,12 @@
             </div>
             <div class="form-group">
                 <label>Password
-                    <input class="form-control" name="password" value="<?= $password ?>">
+                    <input class="form-control" name="password" value="">
                 </label>
             </div>
             <input hidden name="id" value="<?= $id ?>">
             <button class="btn btn-primary" type="submit" name="submit">Save (PHP)</button>
-            <button class="btn btn-primary js-save-date">Save (jQuery)</button>
+            
 
         </form>
     </div>

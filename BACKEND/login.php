@@ -1,37 +1,67 @@
-<?php
-
+<?
 session_start();
 
 if ($_SESSION['user_id']) {
-    header("Location: /KasparKais.github.io/BACKEND/"); //Will reurn to index page if logged in
+    header("Location: /KasparKais.github.io/BACKEND/"); //Will reurn to index page if logged in (nothing else will be executed in this file)
 
 }
 
 if (isset($_POST['submit'])) {
+    if ($_SESSION['csftToken'] !== $_POST['csftToken']) {
+        echo "What a hacker";
+        return;
+    }
     require_once "./helpers/db-wrapper.php";
+    require_once "./entity/User.php";
     $name = $_POST["name"];
     $response = DB::run("SELECT * FROM backenders WHERE name='$name'");
-    $password;
 
     if (!$response->num_rows) {
         echo "User does not exist";
     } else {
         while ($row = mysqli_fetch_assoc($response)) {
-        $password = $row["password"];
-        $user_id = $row["id"];
-    }
+               $user = new User ($row);
+        }
 
-    $validPassword = password_verify($_POST["password"], $password);
+        $saltedPassword = $_POST["password"] . $user::SALT;
+        $validPassword = password_verify($saltedPassword, $user->getPassword());
 
-    if ($validPassword) {
-        $_SESSION['user_id'] = $user_id;
-        header("Location: /KasparKais.github.io/BACKEND/");
+        // var_dump($user);
+        // echo $saltedPassword;
+        // var_dump($_POST);
     
-    } else {
-        echo "Invalid password";
+
+        // echo $saltedPassword;
+        // $validPassword = password_verify($saltedPassword, $user -> getPassword());
+
+        if ($validPassword) {
+            $_SESSION['user_id'] = $user->getId();
+            $_SESSION['user_name'] = $_POST["name"];
+            header("Location: /KasparKais.github.io/BACKEND/");
+    
+        } else {
+            echo "Invalid password";
+        }
     }
 }
-}
+if (isset($_POST["submit"])) {
+}   else {
+    $token = getToken(10);
+    $_SESSION['csftToken'] = $token;
+} 
+
+
+function getToken($length) { 
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
+    $randomString = ''; 
+  
+    for ($i = 0; $i < $length; $i++) { 
+        $index = rand(0, strlen($characters) - 1); 
+        $randomString .= $characters[$index]; 
+    } 
+  
+    return $randomString; 
+};
 ?>
 
 <!DOCTYPE html>
@@ -59,10 +89,16 @@ if (isset($_POST['submit'])) {
             </div>
             <div class="form-group">
                 <label>Password
-                    <input class="form-control" 
-                           name="password">
+                    <input class="form-control" name="password" type="password" value="<?= $password ?>">
+                           
                 </label>
             </div>
+            <!-- add hidden token field -->
+            <input name="csftToken" value="<?= $token ?>" hidden>
+
+
+
+
             <button class="btn btn-primary" type="submit" name="submit">Login (PHP)</button>
         </form>
     </div>

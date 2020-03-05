@@ -29,6 +29,10 @@ class DB {
         }
         $response = static::$connection->query($sql);
 
+        if ($response === TRUE) {
+            $response = static::$connection->insert_id;
+        }
+
         static::closeConnection();
 
         if (static::$connection->error) {

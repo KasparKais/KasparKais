@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__. "/../helpers/db-wrapper.php";
+require_once __DIR__. "/../entity/User.php";
 
 class UsersModel {
     public static function getAllUsers($limit = 25)
@@ -11,7 +12,7 @@ class UsersModel {
     public static function addUsers($data) 
     {
         $name = $data["name"];
-        $password = password_hash($data["password"], PASSWORD_DEFAULT);
+        $password = User::hashPassword($data["password"]);
         DB::run("INSERT INTO backenders (name, password) VALUES ('$name', '$password')");
     }
 
@@ -22,8 +23,11 @@ class UsersModel {
 
     public static function updateUsers($data) {
         $name = $data["name"];
-        $password = password_hash($data["password"], PASSWORD_DEFAULT);
+        $password = User::hashPassword($data["password"]);
         $id = $data["id"];
+
+        // var_dump($data);
+        // var_dump($password);
         DB::run("UPDATE backenders SET name='$name', password='$password' WHERE id=$id");
     }
 

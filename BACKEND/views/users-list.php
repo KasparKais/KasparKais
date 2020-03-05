@@ -1,6 +1,5 @@
-<?php
-session_start();
-?>
+ <?php session_start();?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +21,9 @@ session_start();
               <h1 class="title">
                 Users
               </h1>
+               <h4 <?= isset($_SESSION["user_id"]) ? '' : 'hidden' ?>>
+                    You have signed in as <?= $_SESSION["user_name"] ?> 
+                </h4>
         </div>
       
 
@@ -29,7 +31,10 @@ session_start();
         <a <?= isset($_SESSION["user_id"]) ? 'hidden' : '' ?> href="/KasparKais.github.io/backend/login.php" class="btn btn-primary">
             Login
         </a>
-
+        <a href="/KasparKais.github.io/BACKEND/request-access-token.php" class="btn btn-warning">
+            Request edit access
+        </a>
+        
         <a <?= isset($_SESSION["user_id"]) ? '' : 'hidden' ?> href="/KasparKais.github.io/backend/logout.php" class="btn btn-primary">
             Logout
         </a>
