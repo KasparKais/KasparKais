@@ -1,0 +1,26 @@
+:host {
+  display: block;
+  padding-top: 50px;  
+}
+
+
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: rgba(100, 100, 100, 100);
+    text-align: center;
+}
+
+#header a {
+    padding-right: 25px;
+    color: #000000;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+.color-green {
+    color: green;
+}
